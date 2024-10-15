@@ -2,13 +2,17 @@
 
 <h1><%= I18n.t('index.books') %></h1>
 
-<div id="books">
+<div id="books" class="index-items">
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to I18n.t('attributes.show_this_book'), book %>
-    </p>
+    <div class="index-item">
+      <%= render book %>
+      <p>
+        <%= link_to I18n.t('attributes.show_this_book'), book %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to I18n.t('index.new_book'), new_book_path %>
+<nav class="page-nav">
+  <%= link_to I18n.t('index.new_book'), new_book_path %>
+</nav>
