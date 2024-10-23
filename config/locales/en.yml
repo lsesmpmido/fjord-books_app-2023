@@ -29,25 +29,31 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  edit:
-    editing_book: "Editing book"
-    update_book: "Update Book"
-  index:
-    books: "Books"
-    new_book: "New book"
-  new:
-    new_book: "New book"
-  show:
-    edit_this_book: "Edit this book"
-    destroy_this_book: "Destroy this book"
-  attributes:
-    title: "Title:"
-    memo: "Memo:"
-    author: "Author:"
-    picture: "Picture:"
+ja:
+  activerecord:
+    models:
+      book: "Book"
+    attributes:
+      book:
+        title: "Title:"
+        memo: "Memo:"
+        author: "Author:"
+        picture: "Picture:"
+  books:
+    index:
+      heading: "Books"
+      new_book: "New book"
+    edit:
+      heading: "Editing book"
+    new:
+      heading: "New book"
+    show:
+      edit_this_book: "Edit this book"
+      destroy_this_book: "Destroy this book"
+  common:
     show_this_book: "Show this book"
     back_to_books: "Back to books"
+    register_this_book: "Register this book"
   messages:
     create_success: "Book was successfully created."
     update_success: "Book was successfully updated."
