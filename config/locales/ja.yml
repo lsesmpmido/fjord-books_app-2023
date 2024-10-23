@@ -17,3 +17,7 @@ ja:
     picture: "写真:"
     show_this_book: "この本の詳細へ"
     back_to_books: "本の一覧に戻る"
+  messages:
+    create_success: "本が正常に作成されました。"
+    update_success: "本が正常に更新されました。"
+    destroy_success: "本が正常に削除されました。"

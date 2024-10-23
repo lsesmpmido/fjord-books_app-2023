@@ -48,3 +48,7 @@ en:
     picture: "Picture:"
     show_this_book: "Show this book"
     back_to_books: "Back to books"
+  messages:
+    create_success: "Book was successfully created."
+    update_success: "Book was successfully updated."
+    destroy_success: "Book was successfully destroyed."
