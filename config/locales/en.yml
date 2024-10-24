@@ -29,10 +29,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-ja:
+en:
   activerecord:
     models:
-      book: "Book"
+      book:
+        one: "book"
+        other: "books"
     attributes:
       book:
         title: "Title:"
@@ -41,20 +43,20 @@ ja:
         picture: "Picture:"
   books:
     index:
-      heading: "Books"
-      new_book: "New book"
+      heading: "%{model}"
+      new_book: "New %{model}"
     edit:
-      heading: "Editing book"
+      heading: "Editing %{model}"
     new:
-      heading: "New book"
+      heading: "New %{model}"
     show:
-      edit_this_book: "Edit this book"
-      destroy_this_book: "Destroy this book"
+      edit_this_book: "Edit this %{model}"
+      destroy_this_book: "Destroy this %{model}"
   common:
-    show_this_book: "Show this book"
-    back_to_books: "Back to books"
-    register_this_book: "Register this book"
+    show_this_book: "Show this %{model}"
+    back_to_books: "Back to %{model}"
+    register_this_book: "Register this %{model}"
   messages:
-    create_success: "Book was successfully created."
-    update_success: "Book was successfully updated."
-    destroy_success: "Book was successfully destroyed."
+    create_success: "%{model} was successfully created."
+    update_success: "%{model} was successfully updated."
+    destroy_success: "%{model} was successfully destroyed."

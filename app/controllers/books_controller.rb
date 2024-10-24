@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_book_model
 
   # GET /books or /books.json
   def index
@@ -25,7 +26,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: t('messages.create_success') }
+        format.html { redirect_to book_url(@book), notice: t('messages.create_success', model: @book_model).capitalize }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: t('messages.update_success') }
+        format.html { redirect_to book_url(@book), notice: t('messages.update_success', model: @book_model).capitalize }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: t('messages.destroy_success') }
+      format.html { redirect_to books_url, notice: t('messages.destroy_success', model: @book_model).capitalize }
       format.json { head :no_content }
     end
   end
@@ -62,6 +63,11 @@ class BooksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def set_book_model
+    @book_model = Book.model_name.human
+    @book_model_plural = Book.model_name.human(count: 2)
   end
 
   # Only allow a list of trusted parameters through.
