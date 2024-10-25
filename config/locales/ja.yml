@@ -24,6 +24,6 @@ ja:
     back_to_books: "本の一覧に戻る"
     register_this_book: "本を登録する"
   messages:
-    create_success: "本が正常に作成されました。"
-    update_success: "本が正常に更新されました。"
-    destroy_success: "本が正常に削除されました。"
+    create_success: "%{model}が正常に作成されました。"
+    update_success: "%{model}が正常に更新されました。"
+    destroy_success: "%{model}が正常に削除されました。"

@@ -29,7 +29,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-ja:
+en:
   activerecord:
     models:
       book: "Book"
@@ -55,6 +55,6 @@ ja:
     back_to_books: "Back to books"
     register_this_book: "Register this book"
   messages:
-    create_success: "Book was successfully created."
-    update_success: "Book was successfully updated."
-    destroy_success: "Book was successfully destroyed."
+    create_success: "%{model} was successfully created."
+    update_success: "%{model} was successfully updated."
+    destroy_success: "%{model} was successfully destroyed."
