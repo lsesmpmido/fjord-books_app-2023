@@ -10,20 +10,20 @@ ja:
         picture: "写真:"
   books:
     index:
-      heading: "%{model}の一覧"
-      new_book: "%{model}を追加する"
+      heading: "本の一覧"
+      new_book: "本を追加する"
     edit:
-      heading: "%{model}の編集"
+      heading: "本の編集"
     new:
-      heading: "%{model}の追加"
+      heading: "本の追加"
     show:
-      edit_this_book: "この%{model}を編集する"
-      destroy_this_book: "この%{model}を削除する"
+      edit_this_book: "この本を編集する"
+      destroy_this_book: "この本を削除する"
   common:
-    show_this_book: "この%{model}の詳細を見る"
-    back_to_books: "%{model}の一覧に戻る"
-    register_this_book: "この%{model}を登録する"
+    show_this_book: "この本の詳細を見る"
+    back_to_books: "本の一覧に戻る"
+    register_this_book: "本を登録する"
   messages:
-    create_success: "%{model}が正常に作成されました。"
-    update_success: "%{model}が正常に更新されました。"
-    destroy_success: "%{model}が正常に削除されました。"
+    create_success: "本が正常に作成されました。"
+    update_success: "本が正常に更新されました。"
+    destroy_success: "本が正常に削除されました。"
