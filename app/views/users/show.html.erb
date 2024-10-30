@@ -1,10 +1,14 @@
 <h1>Profile</h1>
 
-<h3>e-mail</h3>
+<h2>e-mail</h2>
 <%= @user.email %>
-<h3>post code</h3>
+<h2>post code</h2>
 <%= @user.post_code %>
-<h3>post code</h3>
+<h2>post code</h2>
 <%= @user.address %>
-<h3>profile</h3>
+<h2>profile</h2>
 <%= @user.profile %>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(User.model_name.human.downcase)), users_path %>
+</nav>
