@@ -18,11 +18,11 @@ ja:
       unconfirmed: "続行する前にメールアドレスを確認する必要があります。"
     mailer:
       confirmation_instructions:
-        subject: "確認の指示"
+        subject: "確認の案内"
       reset_password_instructions:
-        subject: "パスワード再設定の指示"
+        subject: "パスワード再設定の案内"
       unlock_instructions:
-        subject: "ロック解除の指示"
+        subject: "ロック解除の案内"
       email_changed:
         subject: "メールアドレス変更"
       password_change:
