@@ -1,12 +1,12 @@
-<h1>Profile</h1>
+<h1><%= User.human_attribute_name("profile") %></h1>
 
-<h2>e-mail</h2>
+<h2><%= User.human_attribute_name("email") %></h2>
 <%= @user.email %>
-<h2>post code</h2>
+<h2><%= User.human_attribute_name("post_code") %></h2>
 <%= @user.post_code %>
-<h2>post code</h2>
+<h2><%= User.human_attribute_name("address") %></h2>
 <%= @user.address %>
-<h2>profile</h2>
+<h2><%= User.human_attribute_name("profile") %></h2>
 <%= @user.profile %>
 
 <nav class="page-nav">
