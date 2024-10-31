@@ -2,7 +2,7 @@
 
   <p>
     <% if user.avatar.present? %>
-      <%= image_tag user.avatar %><br>
+      <%= image_tag user.avatar.variant(resize: '150x150') %><br>
     <% end %>
     <strong><%= User.human_attribute_name(:email) %>:</strong>
     <%= user.email %>
