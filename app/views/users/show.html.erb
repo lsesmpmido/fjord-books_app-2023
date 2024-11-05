@@ -1,13 +1,6 @@
-<h1><%= User.human_attribute_name("profile") %></h1>
-
-<h2><%= User.human_attribute_name("email") %></h2>
-<%= @user.email %>
-<h2><%= User.human_attribute_name("post_code") %></h2>
-<%= @user.post_code %>
-<h2><%= User.human_attribute_name("address") %></h2>
-<%= @user.address %>
-<h2><%= User.human_attribute_name("profile") %></h2>
-<%= @user.profile %>
+<div class="show-item">
+  <%= render @user %>
+</div>
 
 <nav class="page-nav">
   <%= link_to t('views.common.back', name: i18n_pluralize(User.model_name.human.downcase)), users_path %>
