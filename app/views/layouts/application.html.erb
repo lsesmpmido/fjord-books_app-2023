@@ -13,7 +13,7 @@
   <body class="<%= params[:action] %>">
     <p class="navbar-text float-right">
     <% if user_signed_in? %>
-      <%= t('views.common.status', name: current_user.email).html_safe %>
+      <%= t('views.common.status', name: current_user.email) %>
       <br>
       <%= link_to t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)), books_path, class: "navbar-link" %> |
       <%= link_to t('views.common.title_index', name: i18n_pluralize(User.model_name.human)), users_path, class: "navbar-link" %> |
