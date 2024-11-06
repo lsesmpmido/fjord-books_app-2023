@@ -86,6 +86,6 @@ gem 'kaminari'
 
 gem 'devise'
 
-gem 'letter_opener_web', '~> 3.0'
+gem 'letter_opener_web'
 
-gem 'devise-i18n', '~> 1.12'
+gem 'devise-i18n'

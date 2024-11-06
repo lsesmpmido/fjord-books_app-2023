@@ -321,14 +321,14 @@ DEPENDENCIES
   carrierwave
   debug
   devise
-  devise-i18n (~> 1.12)
+  devise-i18n
   erb_lint
   faker
   i18n_generators
   importmap-rails
   jbuilder
   kaminari
-  letter_opener_web (~> 3.0)
+  letter_opener_web
   puma
   rails (~> 7.0.6)
   rubocop (~> 1.45.1)
