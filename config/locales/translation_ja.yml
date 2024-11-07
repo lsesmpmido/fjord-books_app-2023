@@ -3,6 +3,8 @@ ja:
     models:
       book: 本
       user: ユーザ
+      report: レポート
+      comment: コメント
 
     attributes:
       book:
