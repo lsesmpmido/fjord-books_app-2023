@@ -9,6 +9,7 @@ class User < ApplicationRecord
   end
 
   has_many :reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def name_or_email
     name.empty? ? email : name
