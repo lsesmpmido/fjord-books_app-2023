@@ -5,17 +5,15 @@
         <% if comment.persisted? %>
           <li>
             <%= comment.content %><br>
-            <small>
               (<%= link_to comment.user.name_or_email, comment.user %> - <%= l comment.created_at, format: :short %>)
-            </small>
             <% if current_user == comment.user %>
-              <%= button_to t('views.common.destroy', name: Report.model_name.human), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
             <% end %>
           </li>
         <% end %>
       <% end %>
     </ul>
   <% else %>
-    (<%= t('.no_comments') %>)
+    (<%= t('views.common.no_comments') %>)
   <% end %>
 </div>
