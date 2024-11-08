@@ -6,7 +6,7 @@
 
 <h2><%= Comment.model_name.human %></h2>
 <div class="show-item">
-  <%= render 'comments/comments', comments: @comments %>
+  <%= render 'comments/comments', commentable: @report, comments: @comments %>
 </div>
 
 <div>
