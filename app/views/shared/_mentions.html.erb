@@ -1,8 +1,8 @@
 <p>
   <strong><%= ReportMention.model_name.human %>:</strong>
-  <% if @report_mentions.any? %>
+  <% if @mentioned_reports.any? %>
     <ul>
-      <% @report_mentions.each do |mention| %>
+      <% @mentioned_reports.each do |mention| %>
         <li><%= link_to mention.title, report_path(mention.id) %></li>
       <% end %>
     </ul>
