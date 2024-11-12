@@ -1,5 +1,5 @@
 <p>
-  <strong><%= ReportMention.model_name.human %>:</strong>
+  <strong><%= Report.human_attribute_name(:mentioned_reports) %>:</strong>
   <% if @mentioned_reports.any? %>
     <ul>
       <% @mentioned_reports.each do |mention| %>
