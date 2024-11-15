@@ -31,8 +31,13 @@ class ReportTest < Test::Unit::TestCase
   end
 
   sub_test_case 'メンションを保存' do
-    test '日報に1つメンションを付けて作成すると1を返す' do
+    test 'メンションを1つ付けて日報を新規作成すると1を返す' do
       assert_equal 1, @mentioned_report.mentioning_reports.ids.size
+    end
+
+    test 'メンションを2つ付けて日報を更新すると2を返す' do
+      @mentioned_report.update(content: 'http://localhost:3000/reports/3 http://localhost:3000/reports/5')
+      assert_equal 2, @mentioned_report.mentioning_reports.ids.size
     end
   end
 end
