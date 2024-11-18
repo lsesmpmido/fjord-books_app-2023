@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  title: MyString
-  content: MyText
+  user: 橘ありす
+  title: CSSの課題に取り組みました
+  content: divの概念が難しいです
 
-two:
-  user: two
-  title: MyString
-  content: MyText
+# two:
+#   user: two
+#   title: MyString
+#   content: MyText
