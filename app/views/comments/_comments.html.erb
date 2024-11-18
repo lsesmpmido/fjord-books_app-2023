@@ -7,7 +7,7 @@
             <%= comment.content %><br>
               <strong><%= User.model_name.human %>:</strong> <%= link_to comment.user.name_or_email, comment.user %> | <strong><%= Report.human_attribute_name(:timestamp) %>:</strong> <%= comment.created_at.to_s(:datetime_jp) %>
             <% if current_user == comment.user %>
-              <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete, form: { data: { turbo_confirm: t('views.common.delete_confirm') } } %>
             <% end %>
           </li>
         <% end %>
