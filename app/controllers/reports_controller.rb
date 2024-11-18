@@ -53,7 +53,7 @@ class ReportsController < ApplicationController
   private
 
   def authorize_user!
-    return unless current_user != @report.user
+    return if current_user == @report.user
 
     redirect_to reports_path
   end
