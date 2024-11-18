@@ -22,7 +22,7 @@ class Report < ApplicationRecord
   def create_mentions_from_content
     urls = extract_urls_from_content(content)
     urls.each do |url|
-      num = url.match(/(\d+)$/)[1].to_i
+      num = url.match(%r{http://localhost:3000/reports/(\d+)})[1].to_i
       mentioning_report = Report.find_by(id: num)
       next unless mentioning_report
 
