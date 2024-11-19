@@ -27,7 +27,6 @@ class Report < ApplicationRecord
       next unless mentioning_report
 
       mentioning_reports << mentioning_report unless mentioned_reports.include?(mentioning_report)
-      mentioning_report.mentioned_reports << self unless mentioning_report.mentioned_reports.include?(self)
     end
   end
 
