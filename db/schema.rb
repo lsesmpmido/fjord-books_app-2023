@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_12_043310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mentioned_report_id"], name: "index_report_mentions_on_mentioned_report_id"
+    t.index ["mentioning_report_id", "mentioned_report_id"], name: "index_report_mentions_on_report_ids", unique: true
     t.index ["mentioning_report_id"], name: "index_report_mentions_on_mentioning_report_id"
   end
 
