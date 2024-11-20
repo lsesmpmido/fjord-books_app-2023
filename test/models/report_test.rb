@@ -10,8 +10,8 @@ class ReportTest < Test::Unit::TestCase
     @you = User.find_or_create_by(email: 'you@example.com') do |user|
       user.password = 'password'
     end
-    @report = @me.reports.create(title: 'title', content: 'content')
-    @mentioned_report = @me.reports.create(title: 'title', content: 'http://localhost:3000/reports/3')
+    @report = @me.reports.create(title: 'report_title', content: 'report_content')
+    @mentioned_report = @me.reports.create(title: 'mentioned_report_title', content: 'mentioned_report_content')
   end
 
   sub_test_case '編集可能か判定' do
@@ -31,13 +31,19 @@ class ReportTest < Test::Unit::TestCase
   end
 
   sub_test_case 'メンションを保存' do
-    test 'メンションを1つ付けて日報を新規作成すると1を返す' do
-      assert_equal 1, @mentioned_report.mentioning_reports.ids.size
+    test '日報を作成するとcontentに記載されたURLに対応するレポートがmentioning_reportsに追加される' do
+      new_report = @me.reports.create(title: 'new_report_title', content: "http://localhost:3000/reports/#{@mentioned_report.id}")
+      assert_includes new_report.mentioning_reports, @mentioned_report
     end
 
-    test 'メンションを2つ付けて日報を更新すると2を返す' do
-      @mentioned_report.update(content: 'http://localhost:3000/reports/3 http://localhost:3000/reports/5')
-      assert_equal 2, @mentioned_report.mentioning_reports.ids.size
+    test '日報を更新するとcontentに記載されたURLに対応するレポートがmentioning_reportsに追加される' do
+      @report.update(content: "http://localhost:3000/reports/#{@mentioned_report.id}")
+      assert_includes @report.mentioning_reports, @mentioned_report
+    end
+
+    test 'contentに記載された重複したURLは1回だけメンションとして追加される' do
+      @report.update(content: "http://localhost:3000/reports/#{@mentioned_report.id} http://localhost:3000/reports/#{@mentioned_report.id}")
+      assert_equal 1, @report.mentioning_reports.count
     end
   end
 end
