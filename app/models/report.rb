@@ -22,6 +22,7 @@ class Report < ApplicationRecord
   def create_mentions_from_content
     urls = extract_urls_from_content(content)
     report_ids = urls.map { |url| url.match(%r{http://(?:localhost|127\.0\.0\.1):3000/reports/(\d+)})[1].to_i }.uniq
+    report_ids.reject! { |id| id == self.id }
     reports = Report.where(id: report_ids)
     self.mentioning_reports = reports
   end
