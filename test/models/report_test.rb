@@ -7,7 +7,8 @@ class ReportTest < ActiveSupport::TestCase
     @me = users(:me)
     @you = users(:you)
     @report = @me.reports.create(title: 'report_title', content: 'report_content')
-    @mentioned_report = @me.reports.create(title: 'mentioned_report_title', content: 'mentioned_report_content')
+    @mentioned_report1 = @me.reports.create(title: 'mentioned_report_title1', content: 'mentioned_report_content1')
+    @mentioned_report2 = @me.reports.create(title: 'mentioned_report_title2', content: 'mentioned_report_content2')
   end
 
   test '日報の作成者ならeditable?(user)はtrueを返す' do
@@ -23,18 +24,25 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '日報を作成するとcontentに記載されたURLに対応するレポートがmentioning_reportsに追加される' do
-    new_report = @me.reports.create(title: 'new_report_title', content: "http://localhost:3000/reports/#{@mentioned_report.id}")
-    assert_includes new_report.mentioning_reports, @mentioned_report
+    new_report = @me.reports.create(title: 'new_report_title', content: "http://localhost:3000/reports/#{@mentioned_report1.id}")
+    assert_includes new_report.mentioning_reports, @mentioned_report1
   end
 
   test '日報を更新するとcontentに記載されたURLに対応するレポートがmentioning_reportsに追加される' do
-    assert_not_includes @report.mentioning_reports, @mentioned_report
-    @report.update(content: "http://localhost:3000/reports/#{@mentioned_report.id}")
-    assert_includes @report.mentioning_reports, @mentioned_report
+    assert_not_includes @report.mentioning_reports, @mentioned_report1
+    @report.update(content: "http://localhost:3000/reports/#{@mentioned_report1.id}")
+    assert_includes @report.mentioning_reports, @mentioned_report1
   end
 
-  test 'contentに記載された重複したURLは1回だけメンションとして追加される' do
-    @report.update(content: "http://localhost:3000/reports/#{@mentioned_report.id} http://localhost:3000/reports/#{@mentioned_report.id}")
+  test '日報を更新するとcontentに重複して記載されたURLは1回だけメンションとして追加される' do
+    @report.update(content: "http://localhost:3000/reports/#{@mentioned_report1.id} http://localhost:3000/reports/#{@mentioned_report1.id}")
     assert_equal 1, @report.mentioning_reports.count
+  end
+
+  test '日報を更新するとcontentに重複せずに記載されたURLの数だけメンションとして追加される' do
+    assert_not_includes @report.mentioning_reports, @mentioned_report1
+    assert_not_includes @report.mentioning_reports, @mentioned_report2
+    @report.update(content: "http://localhost:3000/reports/#{@mentioned_report1.id} http://localhost:3000/reports/#{@mentioned_report2.id}")
+    assert_equal 2, @report.mentioning_reports.count
   end
 end
