@@ -4,8 +4,3 @@ one:
   user: alice
   title: CSSの課題に取り組みました
   content: divの概念が難しいです
-
-# two:
-#   user: two
-#   title: MyString
-#   content: MyText
