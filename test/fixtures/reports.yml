@@ -1,6 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+create_report:
   user: alice
-  title: CSSの課題に取り組みました
-  content: divの概念が難しいです
+  title: 作成するタイトル
+  content: 作成する内容
+
+update_report:
+  user: alice
+  title: 更新するタイトル
+  content: 更新する内容
