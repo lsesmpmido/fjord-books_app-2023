@@ -4,12 +4,8 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   def setup
-    @me = User.find_or_create_by(email: 'me@example.com') do |user|
-      user.password = 'password'
-    end
-    @you = User.find_or_create_by(email: 'you@example.com') do |user|
-      user.password = 'password'
-    end
+    @me = users(:me)
+    @you = users(:you)
     @report = @me.reports.create(title: 'report_title', content: 'report_content')
     @mentioned_report = @me.reports.create(title: 'mentioned_report_title', content: 'mentioned_report_content')
   end
