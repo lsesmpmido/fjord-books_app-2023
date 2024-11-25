@@ -28,6 +28,7 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '日報を更新するとcontentに記載されたURLに対応するレポートがmentioning_reportsに追加される' do
+    assert_not_includes @report.mentioning_reports, @mentioned_report
     @report.update(content: "http://localhost:3000/reports/#{@mentioned_report.id}")
     assert_includes @report.mentioning_reports, @mentioned_report
   end
