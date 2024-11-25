@@ -36,6 +36,7 @@ class ReportTest < ActiveSupport::TestCase
 
   test '日報を更新するとcontentに重複して記載されたURLは1回だけメンションとして追加される' do
     @report.update(content: "http://localhost:3000/reports/#{@mentioned_report1.id} http://localhost:3000/reports/#{@mentioned_report1.id}")
+    assert_includes @report.mentioning_reports, @mentioned_report1
     assert_equal 1, @report.mentioning_reports.count
   end
 
@@ -43,6 +44,8 @@ class ReportTest < ActiveSupport::TestCase
     assert_not_includes @report.mentioning_reports, @mentioned_report1
     assert_not_includes @report.mentioning_reports, @mentioned_report2
     @report.update(content: "http://localhost:3000/reports/#{@mentioned_report1.id} http://localhost:3000/reports/#{@mentioned_report2.id}")
+    assert_includes @report.mentioning_reports, @mentioned_report1
+    assert_includes @report.mentioning_reports, @mentioned_report2
     assert_equal 2, @report.mentioning_reports.count
   end
 end
