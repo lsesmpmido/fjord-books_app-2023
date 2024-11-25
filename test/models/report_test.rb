@@ -10,11 +10,11 @@ class ReportTest < ActiveSupport::TestCase
     @mentioned_report = @me.reports.create(title: 'mentioned_report_title', content: 'mentioned_report_content')
   end
 
-  test '日報の作成者ならtrueを返す' do
+  test '日報の作成者ならeditable?(user)はtrueを返す' do
     assert_equal true, @report.editable?(@me)
   end
 
-  test '日報の作成者でないならfalseを返す' do
+  test '日報の作成者でないならeditable?(user)はfalseを返す' do
     assert_equal false, @report.editable?(@you)
   end
 
