@@ -1,11 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-create_report:
+sample_report:
   user: alice
-  title: 作成するタイトル
-  content: 作成する内容
-
-update_report:
-  user: alice
-  title: 更新するタイトル
-  content: 更新する内容
+  title: タイトルのサンプル
+  content: 内容のサンプル
