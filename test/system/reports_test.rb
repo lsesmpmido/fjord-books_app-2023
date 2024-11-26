@@ -53,5 +53,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_selector 'h1', text: '日報の一覧'
     assert_text '日報が削除されました。'
+    refute_text @sample_report.title
+    refute_text @sample_report.content
   end
 end
