@@ -1,0 +1,19 @@
+<div class="comments-container">
+  <% if comments.any? %>
+    <ul>
+      <% comments.each do |comment| %>
+        <% if comment.persisted? %>
+          <li>
+            <%= comment.content %><br>
+              <strong><%= User.model_name.human %>:</strong> <%= link_to comment.user.name_or_email, comment.user %> | <strong><%= Report.human_attribute_name(:timestamp) %>:</strong> <%= comment.created_at.to_s(:datetime_jp) %>
+            <% if current_user == comment.user %>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete, form: { data: { turbo_confirm: t('views.common.delete_confirm') } } %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    (<%= t('views.common.no_comments') %>)
+  <% end %>
+</div>
