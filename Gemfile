@@ -83,3 +83,9 @@ end
 
 gem 'carrierwave'
 gem 'kaminari'
+
+gem 'devise'
+
+gem 'letter_opener_web'
+
+gem 'devise-i18n'

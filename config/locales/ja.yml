@@ -1,6 +1,24 @@
 ---
 ja:
   activerecord:
+    models:
+      book: '本'
+      user: 'ユーザー'
+    attributes:
+      book:
+        author: '著者'
+        memo: 'メモ'
+        picture: '画像'
+        title: 'タイトル'
+      user:
+        email: 'メールアドレス'
+        name: 'アカウント名'
+        post_code: '郵便番号'
+        address: '住所'
+        profile: 'プロフィール'
+        password: 'パスワード'
+        password_confirmation: 'パスワードの確認'
+        current_password: '現在のパスワード'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -181,6 +199,28 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  devise:
+    heading:
+      sign_up: '新規登録'
+      login: 'ログイン'
+      logout: 'ログアウト'
+      forgot_password: 'パスワードの再設定'
+      reset_password: 'パスワードの変更'
+    session:
+      login: 'ログインする'
+      remember_me: 'パスワードを記憶する'
+      forgot_your_password: 'パスワードを忘れましたか？'
+    registration:
+      sign_up: '新規登録する'
+      new_password: '新しいパスワード'
+      confirm_new_password: '新しいパスワードの確認'
+      change_my_password: 'パスワードを変更する'
+      send_me_reset_password_instructions: '登録済みメールアドレスに再設定の案内を送信する'
+      cancel_my_account: "マイアカウントを解約"
+    message:
+      leave_blank: '（変更しない場合は空白のままにしてください）'
+      confirm_your_changes: '（変更を確認するために、現在のパスワードが必要です）'
+      minimum_password_length: '（%{count}文字以上）'
   views:
     common:
       show: "この%{name}を表示"
@@ -192,6 +232,7 @@ ja:
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      status: "%{name}でログイン中"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
     pagination:
